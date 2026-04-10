@@ -15,6 +15,29 @@ export default function Home() {
     setActiveTemplate((prev) => (prev === 5 ? 1 : (prev + 1) as 1 | 2 | 3 | 4 | 5));
   };
 
+  const templateDescriptions = {
+    1: {
+      title: "Clean Utility",
+      description: "A highly readable, professional, and standard business invoice with a crisp layout. It focuses on clarity, using system fonts and a structured grid to make data easily scannable. Perfect for a straightforward, no-nonsense look."
+    },
+    2: {
+      title: "Warm Organic",
+      description: "A softer, more elegant template that uses serif typography and warm off-white/olive tones. It feels approachable and refined, making it great for a family dentistry or a clinic that wants to emphasize a personal, human touch."
+    },
+    3: {
+      title: "Modern Bold",
+      description: "A striking template featuring a dark header and vibrant teal accents. The high contrast and bold typography make it excellent for a high-end, highly modernized, or cosmetic dental practice."
+    },
+    4: {
+      title: "Monochrome",
+      description: "A bold, high-contrast, black-and-white design with thick borders and monospace fonts. It has a very modern, almost brutalist feel, ideal for a clinic wanting an edgy, highly distinctive brand identity."
+    },
+    5: {
+      title: "Soft Friendly",
+      description: "A gentle, pediatric-friendly design featuring rounded corners, soft indigo and blue tones, and a very approachable layout. It uses subtle shadows and pill shapes to feel welcoming and safe."
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 relative pb-32">
       <div className="max-w-5xl mx-auto mb-12">
@@ -89,6 +112,16 @@ export default function Home() {
           {activeTemplate === 3 && <InvoiceTemplate3 />}
           {activeTemplate === 4 && <InvoiceTemplate4 />}
           {activeTemplate === 5 && <InvoiceTemplate5 />}
+        </div>
+
+        {/* Aesthetic Description */}
+        <div className="mt-12 max-w-2xl mx-auto text-center bg-white p-8 rounded-2xl shadow-sm border border-gray-200 transition-all duration-300">
+          <h3 className="text-xl font-bold text-gray-900 mb-3">
+            {templateDescriptions[activeTemplate].title} Aesthetic
+          </h3>
+          <p className="text-gray-600 leading-relaxed">
+            {templateDescriptions[activeTemplate].description}
+          </p>
         </div>
       </div>
 
